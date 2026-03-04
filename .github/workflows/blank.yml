@@ -1,88 +1,93 @@
 name: CI Pipeline
 
 on:
-push:
+  push:
     branches:
-      - backend
-      - ui
-      - machine-learning
-      - integration
       - main
+      - integration
   pull_request:
     branches:
-      - integration
       - main
+      - integration
 
 jobs:
-  backend-tests:
-    if: github.ref == 'refs/heads/backend'
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-      working-directory: backend
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test --if-present
 
-  ui-tests:
-    if: github.ref == 'refs/heads/ui'
+  backend:
+    name: Backend Tests
     runs-on: ubuntu-latest
+    if: ${{ hashFiles('backend/package.json') != '' }}
     defaults:
       run:
-      working-directory: ui
+        working-directory: backend
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Run tests
+        run: npm test --if-present
+
+
+  ui:
+    name: UI Tests
+    runs-on: ubuntu-latest
+    if: ${{ hashFiles('ui/package.json') != '' }}
+    defaults:
+      run:
+        working-directory: ui
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Build UI
         env:
           NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
           NEXT_PUBLIC_CONVEX_URL: ${{ secrets.NEXT_PUBLIC_CONVEX_URL }}
         run: npm run build --if-present
-      - run: npm test --if-present
 
-  ml-tests:
-    if: github.ref == 'refs/heads/machine-learning'
+      - name: Run tests
+        run: npm test --if-present
+
+
+  machine-learning:
+    name: ML Tests
     runs-on: ubuntu-latest
+    if: ${{ hashFiles('machine-learning/requirements.txt') != '' }}
     defaults:
       run:
-      working-directory: machine-learning
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.11
-      - run: pip install -r requirements.txt
-      - run: pytest || echo "No tests found"
+        working-directory: machine-learning
 
-  integration-tests:
-    if: github.ref == 'refs/heads/integration'
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run Integration Tests
-        run: |
-          echo Running integration tests
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  main-validation:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: 20
-      - run: npm ci
-      - name: Production Build Check
-        env:
-           NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
-          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
-          NEXT_PUBLIC_CONVEX_URL: ${{ secrets.NEXT_PUBLIC_CONVEX_URL }}
-        run: npm run build
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest
