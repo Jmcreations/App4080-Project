@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SWIS Assignments</title>
+<link rel="stylesheet" href="assignments.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-left">
+        <div class="logo">🎓</div>
+        <span class="brand">SWIS</span>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a class="active">Assignments</a>
+        <a>Study Sessions</a>
+        <a>Analytics</a>
+        <a>Settings</a>
+    </div>
+
+    <div class="nav-right">
+        <a>Logout</a>
+    </div>
+</div>
+
+<!-- PAGE -->
+<div class="main">
+
+<div class="page-header">
+    <div>
+        <h1>Assignments</h1>
+        <p class="subtitle">Manage your course assignments and deadlines</p>
+    </div>
+
+    <button class="add-btn" onclick="addAssignment()">+ Add Assignment</button>
+</div>
+
+<!-- TABLE -->
+<div class="table-card">
+
+<table>
+
+<thead>
+<tr>
+<th>Title</th>
+<th>Course</th>
+<th>Deadline</th>
+<th>Est. Hours</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>
+<strong>Machine Learning Final Project</strong>
+<p>Build and train a neural network for image classification</p>
+</td>
+<td>CS 401</td>
+<td>Feb 25, 2026</td>
+<td>20h</td>
+<td><span class="priority high">high</span></td>
+<td><span class="status progress">in progress</span></td>
+</tr>
+
+<tr>
+<td>
+<strong>Database Design Report</strong>
+<p>Design a normalized database schema for e-commerce platform</p>
+</td>
+<td>CS 305</td>
+<td>Feb 27, 2026</td>
+<td>8h</td>
+<td><span class="priority medium">medium</span></td>
+<td><span class="status pending">pending</span></td>
+</tr>
+
+<tr>
+<td>
+<strong>Operating Systems Lab 5</strong>
+<p>Implement process scheduling algorithms</p>
+</td>
+<td>CS 302</td>
+<td>Feb 28, 2026</td>
+<td>6h</td>
+<td><span class="priority medium">medium</span></td>
+<td><span class="status progress">in progress</span></td>
+</tr>
+
+<tr>
+<td>
+<strong>Software Engineering Sprint Review</strong>
+<p>Prepare presentation for sprint deliverables</p>
+</td>
+<td>CS 410</td>
+<td>Mar 2, 2026</td>
+<td>4h</td>
+<td><span class="priority low">low</span></td>
+<td><span class="status pending">pending</span></td>
+</tr>
+
+<tr>
+<td>
+<strong>Data Structures Homework 6</strong>
+<p>Implement AVL tree with rotations</p>
+</td>
+<td>CS 201</td>
+<td>Feb 23, 2026</td>
+<td>5h</td>
+<td><span class="priority high">high</span></td>
+<td><span class="status complete">completed</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="assignments.js"></script>
+
+</body>
+</html>
