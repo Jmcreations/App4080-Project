@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SWIS Settings</title>
+<link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+    <div class="nav-left">
+        <div class="logo">🎓</div>
+        <span class="brand">SWIS</span>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="assignments.html">Assignments</a>
+        <a href="StudySession.html">Study Sessions</a>
+        <a href="analytics.html">Analytics</a>
+        <a class="active">Settings</a>
+    </div>
+
+    <div class="nav-right">
+        <a>Logout</a>
+    </div>
+
+</div>
+
+
+<!-- MAIN -->
+<div class="main">
+
+<h1>Settings</h1>
+<p class="subtitle">Manage your account and preferences</p>
+
+
+<div class="grid">
+
+<!-- PROFILE INFO -->
+<div class="card">
+
+<h3>Profile Information</h3>
+
+<label>Full Name</label>
+<input type="text" value="Alex Johnson">
+
+<label>Email Address</label>
+<input type="email" value="alex.johnson@university.edu">
+
+<label>Student ID</label>
+<input type="text" value="STU-2024-001" disabled>
+<small>Student ID cannot be changed</small>
+
+<label>Major</label>
+<input type="text" value="Computer Science">
+
+<button id="saveBtn">Save Changes</button>
+
+</div>
+
+
+
+<!-- RIGHT SIDE -->
+<div class="right-grid">
+
+
+<!-- PRIVACY -->
+<div class="card">
+
+<h3>Privacy & Consent</h3>
+
+<div class="toggle-row">
+<span>Data Collection</span>
+<label class="switch">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="toggle-row">
+<span>Usage Analytics</span>
+<label class="switch">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="toggle-row">
+<span>Email Notifications</span>
+<label class="switch">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="notice">
+<strong>Important:</strong> SWIS is designed for academic productivity tracking only.
+</div>
+
+</div>
+
+
+
+<!-- NOTIFICATIONS -->
+<div class="card">
+
+<h3>Notifications</h3>
+
+<label class="check-row">
+<input type="checkbox" checked>
+Deadline Reminders
+</label>
+
+<label class="check-row">
+<input type="checkbox" checked>
+Workload Alerts
+</label>
+
+<label class="check-row">
+<input type="checkbox" checked>
+Weekly Summary
+</label>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script src="settings.js"></script>
+
+</body>
+</html>
