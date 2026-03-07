@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SWIS Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-left">
+        <div class="logo">🎓</div>
+        <span class="brand">SWIS</span>
+
+                <a href="dashboard.html">Dashboard</a>
+        <a href="assignments.html">Assignments</a>
+        <a href="StudySession.html">Study Sessions</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="nav-right">
+        <a>Logout</a>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+    <h1>Dashboard</h1>
+    <p class="subtitle">Welcome back! Here’s your workload overview</p>
+
+    <div class="grid">
+
+        <!-- LEFT: Upcoming Deadlines -->
+        <div class="card deadlines">
+            <h3>Upcoming Deadlines</h3>
+
+            <div class="deadline-item">
+                <div>
+                    <strong>Machine Learning Final Project</strong>
+                    <p>CS 401<br>Feb 25, 2026</p>
+                </div>
+                <span class="badge high">high</span>
+            </div>
+
+            <div class="deadline-item">
+                <div>
+                    <strong>Database Design Report</strong>
+                    <p>CS 305<br>Feb 27, 2026</p>
+                </div>
+                <span class="badge medium">medium</span>
+            </div>
+
+            <div class="deadline-item">
+                <div>
+                    <strong>Operating Systems Lab 5</strong>
+                    <p>CS 302<br>Feb 28, 2026</p>
+                </div>
+                <span class="badge medium">medium</span>
+            </div>
+
+            <div class="deadline-item">
+                <div>
+                    <strong>Software Engineering Sprint Review</strong>
+                    <p>CS 410<br>Mar 2, 2026</p>
+                </div>
+                <span class="badge low">low</span>
+            </div>
+
+            <div class="deadline-item">
+                <div>
+                    <strong>Algorithm Analysis Quiz</strong>
+                    <p>CS 450<br>Mar 4, 2026</p>
+                </div>
+                <span class="badge high">high</span>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div>
+
+            <!-- Weekly Workload -->
+            <div class="card">
+                <h3>Weekly Workload</h3>
+                <canvas id="workloadChart" class="chart"></canvas>
+            </div>
+
+            <!-- Lower Section -->
+            <div class="lower-grid">
+
+                <!-- Risk Indicator -->
+                <div class="card">
+                    <h3>Risk Indicator</h3>
+                    <div class="risk-circle">⚠</div>
+                    <div class="risk-text">
+                        <strong>Medium</strong><br>
+                        You have 3 assignments due within 7 days
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="card">
+                    <h3>Recommendation</h3>
+
+                    <div class="recommendation-item">
+                        <strong>Start ML Project Early</strong><br>
+                        High priority deadline in 4 days. Allocate 3 hours today.
+                    </div>
+
+                    <div class="recommendation-item">
+                        <strong>Balance Your Week</strong><br>
+                        Thursday looks overloaded. Consider shifting some work to Friday.
+                    </div>
+
+                    <div class="recommendation-item">
+                        <strong>Take Breaks</strong><br>
+                        Schedule 15-min breaks every 2 hours to maintain focus.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+
+</body>
+</html>
