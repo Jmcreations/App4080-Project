@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SWIS Analytics</title>
+<link rel="stylesheet" href="Analytics.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-left">
+        <div class="logo">🎓</div>
+        <span class="brand">SWIS</span>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="assignments.html">Assignments</a>
+        <a href="StudySession.html">Study Sessions</a>
+        <a class="active">Analytics</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="nav-right">
+        <a>Logout</a>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h1>Analytics</h1>
+<p class="subtitle">Insights into your workload patterns and productivity</p>
+
+<!-- WEEKLY TREND -->
+<div class="card">
+    <h3>Weekly Workload Trend</h3>
+    <canvas id="trendChart" class="chart"></canvas>
+
+    <div class="insight">
+        Insight: Your workload has increased by 37% over the past 6 weeks. Average weekly hours: 41.3h
+    </div>
+</div>
+
+<!-- COLLISIONS + ACCURACY -->
+<div class="analytics-grid">
+
+    <!-- Deadline Collisions -->
+    <div class="card">
+        <h3>Deadline Collisions</h3>
+
+        <div class="collision high-risk">
+            <strong>Feb 25, 2026</strong>
+            <p>Machine Learning Final Project</p>
+            <p>Algorithm Analysis Quiz Prep</p>
+            <span>25h total work</span>
+        </div>
+
+        <div class="collision medium-risk">
+            <strong>Feb 27-28, 2026</strong>
+            <p>Database Design Report</p>
+            <p>Operating Systems Lab 5</p>
+            <span>14h total work</span>
+        </div>
+
+        <p class="small-text">
+        Recommendation: Consider starting high-priority tasks earlier to avoid deadline stress
+        </p>
+    </div>
+
+    <!-- Estimation Accuracy -->
+    <div class="card">
+        <h3>Estimation Accuracy</h3>
+
+        <div class="accuracy">
+            <span>Overall Bias</span>
+            <span>+12%</span>
+        </div>
+
+        <div class="progress">
+            <div class="progress-fill"></div>
+        </div>
+
+        <p class="small-text">
+        You typically underestimate task duration by 12%
+        </p>
+
+        <div class="subjects">
+            <p>Machine Learning <span class="red">+25%</span></p>
+            <p>Database Systems <span class="green">-5%</span></p>
+            <p>Operating Systems <span class="orange">+15%</span></p>
+            <p>Software Engineering <span class="green">-8%</span></p>
+        </div>
+
+        <div class="tip">
+        Tip: Add 25% buffer time for Machine Learning tasks based on your historical data
+        </div>
+
+    </div>
+
+</div>
+
+<!-- WORKLOAD INDEX -->
+<div class="card">
+
+<h3>Workload Volatility Index</h3>
+
+<div class="volatility-grid">
+
+    <div class="vol-card status">
+        <h2>Low</h2>
+        <p>Current Status</p>
+        <small>Your workload is fairly consistent week-to-week</small>
+    </div>
+
+    <div class="vol-card">
+        <h2>4.2 hours</h2>
+        <p>Std Deviation</p>
+    </div>
+
+    <div class="vol-card">
+        <h2>48 hours</h2>
+        <p>Peak Week</p>
+    </div>
+
+    <div class="vol-card">
+        <h2>35 hours</h2>
+        <p>Lightest Week</p>
+    </div>
+
+</div>
+
+<p class="small-text">
+Analysis: Your workload is building gradually toward midterms. Consider scheduling lighter tasks during peak weeks to maintain balance.
+</p>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="Analytics.js"></script>
+
+</body>
+</html>
