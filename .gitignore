@@ -5,6 +5,35 @@ dist/
 build/
 # Python environment
 Machine Learning/Lib/
-site-packages/
-__pycache__/
+
+# Ignore Python bytecode
 *.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environment
+venv/
+env/
+
+# Ignore model weights
+*.h5
+*.ckpt
+*.pkl
+*.joblib
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore logs or temp files
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Ignore system-specific files
+.idea/
+.vscode/
+
+# Ignore dependencies installed locally (if using a lib folder with 3rd-party code)
+lib/
