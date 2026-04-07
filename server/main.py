@@ -52,7 +52,7 @@ class StudentData(BaseModel):
 @app.post("/predict")
 async def predict_score(data: StudentData):
     try:
-        score = model.predict(data.dict())
+        score = model.predict(data.model_dump())
         return {
             "success": True,
             "predicted_exam_score": score,
